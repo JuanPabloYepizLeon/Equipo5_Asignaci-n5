@@ -12,7 +12,7 @@ public class ArrayList<T> implements IList<T>, Iterable<T>{
 
     @Override
     public void set(T o, int i) throws ListException {
-        // Hola
+        // Hola que hace
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
