@@ -54,8 +54,8 @@ public class ArrayList<T> implements IList<T>, Iterable<T>{
     public void append(T o) throws ListException {
         if(nElementos >= tamLista)
             throw new ListException("Lista llena");
-            lista[nElementos] = o;
-            nElementos++;
+                lista[nElementos] = o;
+                nElementos++;
         
     }
 
@@ -64,20 +64,20 @@ public class ArrayList<T> implements IList<T>, Iterable<T>{
         if (nElementos >= tamLista)
         throw new ListException("Lista llena");
         // Si el indice i esta fuera de los limites de los datos
-        if(i < 0 || i > nElementos)
-        throw new ListException("Indice fuera de limites");
-        for(int j = nElementos; j > i; j--)
-        lista[j] = lista[j - 1];
-        lista[i] = o;
-        nElementos++;;
+            if(i < 0 || i > nElementos)
+                throw new ListException("Indice fuera de limites");
+                    for(int j = nElementos; j > i; j--)
+                        lista[j] = lista[j - 1];
+                            lista[i] = o;
+                            nElementos++;;
     }
 
     @Override
     public T get(int i) throws ListException {
         if (empty())
         throw new ListException("Lista vacia");
-        if(i < 0 || i >= nElementos)
-        throw new ListException("Indice fuera de limites");
+            if(i < 0 || i >= nElementos)
+                throw new ListException("Indice fuera de limites");
         return lista[i];        
     }
 
@@ -86,7 +86,7 @@ public class ArrayList<T> implements IList<T>, Iterable<T>{
         T o = get(i);
         for(int j = i; j < nElementos - 1; j++)
         lista[j] = lista[j+1];
-        nElementos--;
+            nElementos--;
         return o;
     }
 
@@ -121,9 +121,5 @@ public class ArrayList<T> implements IList<T>, Iterable<T>{
         s += "]";
         return s;
     }
-    
-
-    
-    
-    
+  
 }
