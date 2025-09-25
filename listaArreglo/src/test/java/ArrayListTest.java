@@ -1,150 +1,117 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit5TestClass.java to edit this template
- */
-
 import excepciones.ListException;
 import implementaciones.ArrayList;
 import java.util.Iterator;
-import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
-import org.w3c.dom.ls.LSException;
+import static org.junit.jupiter.api.Assertions.*;
 
-/**
- *
- * @author E5
- */
 public class ArrayListTest {
-    
-    public ArrayListTest() {
-    }
 
- 
     @Test
-    public void testSet()throws ListException{
-        ArrayList<Integer> list = new ArrayList<>(Integer.class,10);
+    public void testSet() throws ListException {
+        ArrayList<Integer> list = new ArrayList<>(Integer.class, 5);
         list.append(5);
         list.set(20, 0);
         assertEquals(20, list.get(0));
     }
 
-    /**
-     * Test of remove method, of class ArrayList.
-     */
-   @Test
-    public void testRemove_GenericType() throws ListException{
-        ArrayList<String> list = new ArrayList<>(String.class,10);
-        list.append("a");
-        assertTrue(list.remove("a"));
-    }
-
-    /**
-     * Test of indexOf method, of class ArrayList.
-     */
     @Test
-    public void testIndexOf() throws ListException{
-        ArrayList<Integer> list = new ArrayList<>(Integer.class,10);
-        list.append(100);
-        assertEquals(0, list.indexOf(100));
-    }
-
-    /**
-     * Test of append method, of class ArrayList.
-     */
-    @Test
-    public void testAppend()throws ListException{
-        ArrayList<Integer> list = new ArrayList<>(Integer.class, 10);
-        list.append(5);
-        list.append(10);
-        assertEquals(2, list.size());
-        assertEquals(5, list.get(0));
-        assertEquals(10, list.get(1));
-    }
-
-    /**
-     * Test of insert method, of class ArrayList.
-     */
-    @Test
-    public void testInsert()throws ListException{
-    ArrayList<Integer> list = new ArrayList<>(Integer.class, 10);
-    list.insert(10, 0);      
-    assertEquals(3, list.size());
-    assertEquals(10, list.get(0));
-    }
-
-    /**
-     * Test of get method, of class ArrayList.
-     */
-    @Test
-    public void testGet() throws ListException{
-      ArrayList<Integer> list = new ArrayList<>(Integer.class,10);
-    }
-
-    /**
-     * Test of remove method, of class ArrayList.
-     */
-    @Test
-    public void testRemove_int()throws ListException{
-        ArrayList<Integer> list = new ArrayList<>(Integer.class,10);
-        list.append(100);
-        int removed = list.remove(0);
-        assertEquals(100, removed);
-    }
-
-    /**
-     * Test of empty method, of class ArrayList.
-     */
-    @Test
-    public void testEmpty()throws ListException{
-    ArrayList<Integer> list = new ArrayList<>(Integer.class, 10);
-    assertTrue(list.empty());
-    }
-
-    /**
-     * Test of size method, of class ArrayList.
-     */
-   @Test
-    public void testSize()throws ListException{
-       ArrayList<Integer> list = new ArrayList<>(Integer.class,10);
-       list.append(5);
-       assertEquals(1, list.size());
-    }
-
-    /**
-     * Test of iterator method, of class ArrayList.
-     */
-    @Test
-    public void testIterator() throws ListException{
+public void testRemove_GenericType() throws ListException {
     ArrayList<Integer> list = new ArrayList<>(Integer.class, 10);
     list.append(5);
     list.append(10);
-    Iterator<Integer> it = list.iterator();
-    assertTrue(it.hasNext());
-    assertEquals(5, it.next());
-    assertTrue(it.hasNext());
-    assertEquals(10, it.next());
-    assertTrue(it.hasNext());
+    list.remove(0); 
+    assertEquals(1, list.size());
+    assertEquals(10, list.get(0));
+}
+
+    @Test
+    public void testIndexOf() throws ListException {
+        ArrayList<String> list = new ArrayList<>(String.class, 5);
+        list.append("x");
+        list.append("y");
+        list.append("z");
+        assertEquals(1, list.indexOf("y"));
+        assertEquals(-1, list.indexOf("no-existe"));
     }
 
-    /**
-     * Test of clear method, of class ArrayList.
-     */
     @Test
-    public void testClear()throws ListException{
-        ArrayList<String> list = new ArrayList<>(String.class,10);
-        list.append("x");
+    public void testAppend() throws ListException {
+        ArrayList<Integer> list = new ArrayList<>(Integer.class, 5);
+        list.append(7);
+        assertEquals(7, list.get(0));
+        assertEquals(1, list.size());
+    }
+
+    @Test
+    public void testInsert() throws ListException {
+        ArrayList<Integer> list = new ArrayList<>(Integer.class, 5);
+        list.append(1);
+        list.append(3);
+        list.insert(2, 1);
+        assertEquals(2, list.get(1));
+    }
+
+    @Test
+    public void testGet() throws ListException {
+        ArrayList<Integer> list = new ArrayList<>(Integer.class, 5);
+        list.append(99);
+        assertEquals(99, list.get(0));
+    }
+
+    @Test
+    public void testRemove_int() throws ListException {
+        ArrayList<Integer> list = new ArrayList<>(Integer.class, 5);
+        list.append(10);
+        list.append(20);
+        int removed = list.remove(0);
+        assertEquals(10, removed);
+        assertEquals(1, list.size());
+    }
+
+    @Test
+    public void testEmpty() throws ListException {
+        ArrayList<Integer> list = new ArrayList<>(Integer.class, 5);
+        list.append(1);
+    }
+
+    @Test
+    public void testSize() throws ListException {
+        ArrayList<Integer> list = new ArrayList<>(Integer.class, 5);
+        list.append(5);
+        assertEquals(1, list.size());
+    }
+
+    @Test
+    public void testIterator() throws ListException {
+        ArrayList<Integer> list = new ArrayList<>(Integer.class, 5);
+        list.append(5);
+        list.append(10);
+        list.append(15);
+
+        Iterator<Integer> it = list.iterator();
+        assertTrue(it.hasNext());
+        assertEquals(5, it.next());
+        assertTrue(it.hasNext());
+        assertEquals(10, it.next());
+        assertTrue(it.hasNext());
+        assertEquals(15, it.next());
+        assertFalse(it.hasNext());
+    }
+
+    @Test
+    public void testClear() throws ListException {
+        ArrayList<Integer> list = new ArrayList<>(Integer.class, 5);
+        list.append(1);
+        list.append(2);
         list.clear();
         assertEquals(0, list.size());
     }
 
-    /**
-     * Test of toString method, of class ArrayList.
-     */
     @Test
-    public void testToString() {
-        ArrayList<String> list = new ArrayList<>(String.class,10);
-        list.append("item");
-        assertEquals("[item]", list.toString());
+    public void testToString() throws ListException {
+        ArrayList<Integer> list = new ArrayList<>(Integer.class, 5);
+        list.append(1);
+        list.append(2);
+        assertEquals("[1, 2]", list.toString());
     }
-    
 }
