@@ -12,19 +12,39 @@ public class ArrayList<T> implements IList<T>, Iterable<T>{
 
     @Override
     public void set(T o, int i) throws ListException {
-        // Hola que hace GG
-        // Hola que hace GG
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if (isEmpty()) {
+        throw new ListException("Lista vacía: no se puede setear elemento");
+        }
+        if (i < 0 || i >= nElementos) {
+        throw new ListException("Índice fuera de límites: " + i);
+        }
+        lista[i] = o;
     }
 
     @Override
     public boolean remove(T o) throws ListException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    for (int j = (int)o; j < nElementos - 1; j++) {
+        lista[j] = lista[j + 1];
+    }
+    lista[--nElementos] = null; 
+    return (boolean)o;
     }
 
     @Override
     public int indexOf(T o) throws ListException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+      if (isEmpty()) {
+        throw new ListException("Lista vacía: no se puede buscar el índice");
+        }
+        for (int i = 0; i < nElementos; i++) {
+        if (lista[i].equals(o)) {
+            return i; 
+      }
+     }
+        return -1; 
+      }
+
+    private boolean isEmpty() {
+       return nElementos==0;
     }
 
 
@@ -70,7 +90,7 @@ public class ArrayList<T> implements IList<T>, Iterable<T>{
                     for(int j = nElementos; j > i; j--)
                         lista[j] = lista[j - 1];
                             lista[i] = o;
-                            nElementos++;;
+                            nElementos++;
     }
 
     @Override
@@ -87,7 +107,7 @@ public class ArrayList<T> implements IList<T>, Iterable<T>{
         T o = get(i);
         for(int j = i; j < nElementos - 1; j++)
         lista[j] = lista[j+1];
-            nElementos--;
+        nElementos--;
         return o;
     }
 
@@ -109,7 +129,10 @@ public class ArrayList<T> implements IList<T>, Iterable<T>{
 
     @Override
     public void clear() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    for (int i = 0; i < nElementos; i++) {
+        lista[i] = null;
+    }
+    nElementos = 0;
     }
 
     @Override
