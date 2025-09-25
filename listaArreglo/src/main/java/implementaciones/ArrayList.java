@@ -5,9 +5,17 @@ import excepciones.ListException;
 import java.util.Iterator;
 
 public class ArrayList<T> implements IList<T>, Iterable<T>{
-    protected int nElementos;
+ protected int nElementos;
     private final int tamLista;
     private final T lista[];
+    
+    
+    public ArrayList(int nElementos, int tamLista, T[] lista) {
+        this.nElementos = nElementos;
+        this.tamLista = tamLista;
+        this.lista = lista;
+    }
+   
 
     @Override
     public void set(T o, int i) throws ListException {
