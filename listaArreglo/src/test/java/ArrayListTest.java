@@ -8,10 +8,11 @@ import implementaciones.ArrayList;
 import java.util.Iterator;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
+import org.w3c.dom.ls.LSException;
 
 /**
  *
- * @author luisc
+ * @author E5
  */
 public class ArrayListTest {
     
@@ -19,8 +20,8 @@ public class ArrayListTest {
     }
 
  
-    @org.junit.jupiter.api.Test
-    public void testSet() {
+    @Test
+    public void testSet()throws ListException{
         ArrayList<Integer> list = new ArrayList<>(Integer.class,10);
         list.append(5);
         list.set(20, 0);
@@ -30,58 +31,45 @@ public class ArrayListTest {
     /**
      * Test of remove method, of class ArrayList.
      */
-    @org.junit.jupiter.api.Test
-    public void testRemove_GenericType() {
-        System.out.println("remove");
-        Object o = null;
-        ArrayList instance = null;
-        boolean expResult = false;
-        boolean result = instance.remove(o);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+   @Test
+    public void testRemove_GenericType() throws ListException{
+        ArrayList<String> list = new ArrayList<>(String.class,10);
+        list.append("a");
+        assertTrue(list.remove("a"));
     }
 
     /**
      * Test of indexOf method, of class ArrayList.
      */
-    @org.junit.jupiter.api.Test
-    public void testIndexOf() {
-        System.out.println("indexOf");
-        Object o = null;
-        ArrayList instance = null;
-        int expResult = 0;
-        int result = instance.indexOf(o);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    @Test
+    public void testIndexOf() throws ListException{
+        ArrayList<Integer> list = new ArrayList<>(Integer.class,10);
+        list.append(100);
+        assertEquals(0, list.indexOf(100));
     }
 
     /**
      * Test of append method, of class ArrayList.
      */
-    @org.junit.jupiter.api.Test
-    public void testAppend() {
-        System.out.println("append");
-        Object o = null;
-        ArrayList instance = null;
-        instance.append(o);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    @Test
+    public void testAppend()throws ListException{
+        ArrayList<Integer> list = new ArrayList<>(Integer.class, 10);
+        list.append(5);
+        list.append(10);
+        assertEquals(2, list.size());
+        assertEquals(5, list.get(0));
+        assertEquals(10, list.get(1));
     }
 
     /**
      * Test of insert method, of class ArrayList.
      */
-    @org.junit.jupiter.api.Test
-    public void testInsert() {
-        System.out.println("insert");
-        Object o = null;
-        int i = 0;
-        ArrayList instance = null;
-        instance.insert(o, i);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    @Test
+    public void testInsert()throws ListException{
+    ArrayList<Integer> list = new ArrayList<>(Integer.class, 10);
+    list.insert(10, 0);      
+    assertEquals(3, list.size());
+    assertEquals(10, list.get(0));
     }
 
     /**
@@ -89,90 +77,74 @@ public class ArrayListTest {
      */
     @Test
     public void testGet() throws ListException{
-      ArrayList<Integer> list = new ArrayList<>(Integer.class,3);
+      ArrayList<Integer> list = new ArrayList<>(Integer.class,10);
     }
 
     /**
      * Test of remove method, of class ArrayList.
      */
-    @org.junit.jupiter.api.Test
-    public void testRemove_int() {
-        System.out.println("remove");
-        int i = 0;
-        ArrayList instance = null;
-        Object expResult = null;
-        Object result = instance.remove(i);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    @Test
+    public void testRemove_int()throws ListException{
+        ArrayList<Integer> list = new ArrayList<>(Integer.class,10);
+        list.append(100);
+        int removed = list.remove(0);
+        assertEquals(100, removed);
     }
 
     /**
      * Test of empty method, of class ArrayList.
      */
-    @org.junit.jupiter.api.Test
-    public void testEmpty() {
-        System.out.println("empty");
-        ArrayList instance = null;
-        boolean expResult = false;
-        boolean result = instance.empty();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    @Test
+    public void testEmpty()throws ListException{
+    ArrayList<Integer> list = new ArrayList<>(Integer.class, 10);
+    assertTrue(list.empty());
     }
 
     /**
      * Test of size method, of class ArrayList.
      */
-    @org.junit.jupiter.api.Test
-    public void testSize() {
-        System.out.println("size");
-        ArrayList instance = null;
-        int expResult = 0;
-        int result = instance.size();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+   @Test
+    public void testSize()throws ListException{
+       ArrayList<Integer> list = new ArrayList<>(Integer.class,10);
+       list.append(5);
+       assertEquals(1, list.size());
     }
 
     /**
      * Test of iterator method, of class ArrayList.
      */
-    @org.junit.jupiter.api.Test
-    public void testIterator() {
-        System.out.println("iterator");
-        ArrayList instance = null;
-        Iterator expResult = null;
-        Iterator result = instance.iterator();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    @Test
+    public void testIterator() throws ListException{
+    ArrayList<Integer> list = new ArrayList<>(Integer.class, 10);
+    list.append(5);
+    list.append(10);
+    Iterator<Integer> it = list.iterator();
+    assertTrue(it.hasNext());
+    assertEquals(5, it.next());
+    assertTrue(it.hasNext());
+    assertEquals(10, it.next());
+    assertTrue(it.hasNext());
     }
 
     /**
      * Test of clear method, of class ArrayList.
      */
-    @org.junit.jupiter.api.Test
-    public void testClear() {
-        System.out.println("clear");
-        ArrayList instance = null;
-        instance.clear();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    @Test
+    public void testClear()throws ListException{
+        ArrayList<String> list = new ArrayList<>(String.class,10);
+        list.append("x");
+        list.clear();
+        assertEquals(0, list.size());
     }
 
     /**
      * Test of toString method, of class ArrayList.
      */
-    @org.junit.jupiter.api.Test
+    @Test
     public void testToString() {
-        System.out.println("toString");
-        ArrayList instance = null;
-        String expResult = "";
-        String result = instance.toString();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        ArrayList<String> list = new ArrayList<>(String.class,10);
+        list.append("item");
+        assertEquals("[item]", list.toString());
     }
     
 }
