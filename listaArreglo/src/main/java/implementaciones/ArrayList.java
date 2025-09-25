@@ -14,6 +14,7 @@ public class ArrayList<T> implements IList<T>, Iterable<T>{
         this.nElementos = nElementos;
         this.tamLista = tamLista;
         this.lista = lista;
+        System.out.println("HOLA QUIERO PORNOOOOO");
     }
    
 
