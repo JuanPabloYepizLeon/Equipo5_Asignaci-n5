@@ -2,9 +2,14 @@ package interfaces;
 
 import excepciones.ListException;
 import java.util.Iterator;
-
+/**
+ * IList.java
+ * Interfaz que tiene los metodos necesarios para la lista
+ * @author E5
+ * @param <T> Tipo que sera la lista
+ */
 public interface IList<T>{
-    
+
     /**
      * public void que agrega un valor al IList
      * @param o tipo generico valor definido al momento de
@@ -85,8 +90,4 @@ public interface IList<T>{
      * 
      */
     void clear();
-    
-    
-    
-    
 }
