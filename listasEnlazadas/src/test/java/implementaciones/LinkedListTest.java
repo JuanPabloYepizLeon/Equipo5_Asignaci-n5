@@ -16,7 +16,9 @@ public class LinkedListTest {
     public LinkedListTest() {
 
     }
-    
+        /**
+         * funcion que prueba los metodos de las clase LinkedList tipo Integer
+         */
         @Test
         public void testAppend_Integer() {
         System.out.println("Prueba del metodo append(), de la clase LinkedList<Integer>");
@@ -47,6 +49,9 @@ public class LinkedListTest {
         assertEquals(expNElementos, nElementos);
         }
         
+        /**
+         * funcion que prueba el metodo insert tipo Integer
+         */
         @Test
         public void testInsert_Integer() {
         System.out.println("Prueba del metodo insert(), de la clase LinkedList, de la clase LinkedList<Integer>");
@@ -98,6 +103,9 @@ public class LinkedListTest {
         () -> intList.insert(5, 5));
         }
         
+        /**
+         * funcion que prueba el metodo get tipo Integer
+         */
         @Test
         public void testGet_Integer() {
         System.out.println("Prueba del metodo get(), de la clase LinkedList<Integer>");
@@ -134,6 +142,9 @@ public class LinkedListTest {
         e = assertThrows(ListException.class, () -> intList.get(5));
         }
         
+        /**
+         * funcion que prueba el metodo remove tipo Integer
+         */
         @Test
         public void testRemove_int_Integer() {
         System.out.println("Prueba del metodo remove(), de la clase LinkedList<Integer>");
@@ -184,6 +195,9 @@ public class LinkedListTest {
         () -> intList.remove(3));
         }
         
+        /**
+         * funcion que prueba el metodo empty tipo Integer
+         */
         @Test
         public void testEmpty_Integer() {
         System.out.println("Prueba del metodo empty(), de la clase LinkedList<Integer>");
@@ -199,6 +213,9 @@ public class LinkedListTest {
         assertFalse(result);
         }
         
+        /**
+         * funcion que prueba el metodo size tipo Integer
+         */
         @Test
         public void testSize_Integer() {
         System.out.println("Prueba del metodo size(), de la clase LinkedList<Integer>");
@@ -217,6 +234,9 @@ public class LinkedListTest {
         assertEquals(expResult, result);
         }
         
+        /**
+         * funcion que prueba el metodo interador tipo Integer
+         */
         @Test
         public void testIterator_Integer() {
         System.out.println("Prueba del metodo iterator(), de la clase LinkedList<Integer>");
@@ -226,6 +246,9 @@ public class LinkedListTest {
         assertNotNull(result);
         }
         
+        /**
+         * funcion que prueba el metodo toString tipo Integer
+         */
         @Test
         public void testToString_Integer() {
         System.out.println("Prueba del metodo toString(), de la clase LinkedList<Integer>");
@@ -248,6 +271,9 @@ public class LinkedListTest {
         assertEquals(expResult, result);
         }
         
+        /**
+         * funcion que prueba el metodo append tipo String
+         */
         @Test
         public void testAppend_String() {
         System.out.println("Prueba del metodo append(), de la clase LinkedList<String>");
@@ -281,6 +307,9 @@ public class LinkedListTest {
         assertEquals(expNElementos, nElementos);
         }
         
+        /**
+         * funcion que prueba el metodo insert tipo String
+         */
         @Test
         public void testInsert_String() {
         System.out.println("Prueba del metodo insert(), de la clase LinkedList, de la clase LinkedList<String>");
@@ -333,6 +362,9 @@ public class LinkedListTest {
         () -> strList.insert("Felipe", 5));
         }
         
+        /**
+         * funcion que prueba el metodo get tipo String
+         */
         @Test
         public void testGet_String() {
         System.out.println("Prueba del metodo get(), de la clase LinkedList<String>");
@@ -370,6 +402,9 @@ public class LinkedListTest {
         e = assertThrows(ListException.class, () -> strList.get(5));
         }
         
+        /**
+         * funcion que prueba el metodo remove 
+         */
         @Test
         public void testRemove_int_String() {
         System.out.println("Prueba del metodo remove(), de la clase LinkedList<String>");
@@ -420,6 +455,9 @@ public class LinkedListTest {
         () -> strList.remove(3));
         }
         
+        /**
+         * funcion que prueba el metodo empty tipo String
+         */
         @Test
         public void testEmpty_String() {
         System.out.println("Prueba del metodo empty(), de la clase LinkedList<String>");
@@ -435,6 +473,9 @@ public class LinkedListTest {
         assertFalse(result);
         }
         
+        /**
+         * funcion que prueba el metodo size tipo string
+         */
         @Test
         public void testSize_String() {
         System.out.println("Prueba del metodo size(), de la clase LinkedList<String>");
@@ -453,6 +494,9 @@ public class LinkedListTest {
         assertEquals(expResult, result);
         }
         
+        /**
+         * funcion que prueba el metodo iterator tipo string
+         */
         @Test
         public void testIterator_String() {
         System.out.println("Prueba del metodo iterator(), de la clase LinkedList<String>");
@@ -462,6 +506,9 @@ public class LinkedListTest {
         assertNotNull(result);
         }
         
+        /**
+         * funcion que prueba el metodo toString tipo String
+         */
         @Test
         public void testToString_String() {
         System.out.println("Prueba del metodo toString(), de la clase LinkedList<String>");
